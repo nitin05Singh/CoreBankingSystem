@@ -2,6 +2,7 @@ package simplebankingsystem.dao;
 
 import simplebankingsystem.models.BankAccount;
 
+//Interface which contains all methods
 public interface BankMethods {
 	boolean Transaction(long sender,long reciver, int amount);
 
