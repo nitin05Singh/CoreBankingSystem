@@ -1,5 +1,6 @@
 package simplebankingsystem.dao;
 
+//importing important Classes
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,6 +9,7 @@ import java.sql.SQLException;
 
 import simplebankingsystem.models.BankAccount;
 
+//Transfering from one account to other
 public class BankMethodImpl implements BankMethods {
 
 	@Override
@@ -24,6 +26,7 @@ public class BankMethodImpl implements BankMethods {
 		return false;
 	}
 
+	//Deposit In Account
 	@Override
 	public boolean Deposit(Long accountNo, int amount) {
 		BankAccount account = getCustomerByAccountNo(accountNo);
@@ -52,12 +55,14 @@ public class BankMethodImpl implements BankMethods {
 		return false;
 	}
 
+	//Check Balance
 	@Override
 	public int checkBalance(Long accountNo) {
 		BankAccount account = getCustomerByAccountNo(accountNo);
 		return account.getAccountBalance();
 	}
 
+	//Withdraw From Account
 	@Override
 	public boolean withdrawAmount(Long accountNo, int amount) {
 		BankAccount account = getCustomerByAccountNo(accountNo);
@@ -86,6 +91,7 @@ public class BankMethodImpl implements BankMethods {
 		return false;
 	}
 
+	//Add New Account
 	@Override
 	public boolean AddAccount(BankAccount account) {
 		try {
@@ -119,6 +125,7 @@ public class BankMethodImpl implements BankMethods {
 		return false;
 	}
 
+	//Login to Account
 	@Override
 	public boolean customerLogin(Long accountNo, int pin) {
 		BankAccount account = getCustomerByAccountNo(accountNo);
@@ -128,6 +135,7 @@ public class BankMethodImpl implements BankMethods {
 		return false;
 	}
 
+	//Find Customer wiht Account-No
 	@Override
 	public BankAccount getCustomerByAccountNo(Long accountNo) {
 		BankAccount account = new BankAccount();
@@ -162,6 +170,7 @@ public class BankMethodImpl implements BankMethods {
 
 	}
 
+	//CHange Pin
 	@Override
 	public boolean changePin(Long accountNo, int newPin) {
 
@@ -188,6 +197,7 @@ public class BankMethodImpl implements BankMethods {
 		return false;
 	}
 
+	//Delete Account
 	@Override
 	public boolean deleteAccount(Long accountNo) {
 		try {
@@ -211,6 +221,7 @@ public class BankMethodImpl implements BankMethods {
 		return false;
 	}
 
+	//Latest Added Account
 	@Override
 	public BankAccount getLatestData() {
 		BankAccount account = new BankAccount();
