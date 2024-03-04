@@ -9,9 +9,10 @@ import java.sql.SQLException;
 
 import simplebankingsystem.models.BankAccount;
 
-//Transfering from one account to other
+
 public class BankMethodImpl implements BankMethods {
 
+	//Transfering from one account to other
 	@Override
 	public boolean Transaction(long sender, long reciever, int amount) {
 		BankAccount senderAccount = getCustomerByAccountNo(sender);
