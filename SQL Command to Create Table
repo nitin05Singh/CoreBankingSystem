@@ -1,0 +1,6 @@
+//To Create Database
+Create database simpleBankingSystem;
+
+//To Create Table BankAccount
+Create table BankAccount(accountNo int auto_increment, bankName varchar(45),customerName varchar(45),age int,address varchar(45),
+contact double,pin int,accountBalance int,accountType varchar(45),primary key(accountNo));
