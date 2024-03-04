@@ -21,12 +21,14 @@ public class BankClient {
 		boolean flag = false;
 
 		while (true) {
+			//Main Index
 			System.out.println("Enter Your Choice : ");
 			System.out.println(" 1.Open An Account \n 2.Already Have An Account \n 3.Do's and Dont's \n 4.Exit");
 			int choice = sc.nextInt();
 
 			switch (choice) {
 			case 1:
+				//Logic to Open an Account
 				System.out.println("Please Enter Which Type Of Account You Want : ");
 				System.out.println(" 1.Savings (Zero Banalce) \n 2.Current (Min. 2000 Rs. Required).");
 				int type = sc.nextInt();
@@ -97,6 +99,7 @@ public class BankClient {
 				break;
 
 			case 2:
+				//Customer Login
 				System.out.println("Enter The Account Number : ");
 				long accountNo = sc.nextLong();
 				BankAccount transferAccount = impl.getCustomerByAccountNo(accountNo);
@@ -105,6 +108,7 @@ public class BankClient {
 				boolean isLogin = impl.customerLogin(accountNo, pin);
 				if (isLogin) {
 					while (true) {
+						//After Login Operations
 						System.out.println("Enter The Operation : ");
 						System.out.println(" 1.Check Balance \n 2.Bank Transfer \n "
 								+ "3.Deposit Amount \n 4.Withdraw Amount \n 5.Display Details \n 6.Change Pin"
@@ -112,11 +116,13 @@ public class BankClient {
 						int operation = sc.nextInt();
 						switch (operation) {
 						case 1:
+							//Check Balance	
 							int Balance = impl.checkBalance(accountNo);
 							System.out.println("Account Balance is : " + Balance);
 							break;
 
 						case 2:
+							//Bank Transfer	
 							System.out.println("Enter The Reciever Account No : ");
 							long reciever = sc.nextLong();
 							System.out.println("Enter The pin : ");
@@ -151,6 +157,7 @@ public class BankClient {
 							break;
 
 						case 3:
+							//Deposit	
 							System.out.println("Enter The Amount you want to Deposit : ");
 							int deposit = sc.nextInt();
 							boolean isDeposited = impl.Deposit(accountNo, deposit);
@@ -163,6 +170,7 @@ public class BankClient {
 							break;
 
 						case 4:
+							//Withdrwal	
 							System.out.println("Enter The Amount you want to Withdraw : ");
 							int withdraw = sc.nextInt();
 							BankAccount bankWithdraw = impl.getCustomerByAccountNo(accountNo);
@@ -182,11 +190,13 @@ public class BankClient {
 							break;
 
 						case 5:
+							//User Profile	
 							BankAccount bankDisplay = impl.getCustomerByAccountNo(accountNo);
 							System.out.println(bankDisplay);
 							break;
 
 						case 6:
+							//Change Pin	
 							System.out.println("Enter The Updated Pin : ");
 							int newPin = sc.nextInt();
 							boolean pinChanged = impl.changePin(accountNo, newPin);
@@ -198,6 +208,7 @@ public class BankClient {
 							break;
 
 						case 7:
+							//Delete Account
 							boolean isDeleted = impl.deleteAccount(accountNo);
 							if (isDeleted) {
 								System.out.println("Account Deleted Succefully!!");
@@ -207,6 +218,7 @@ public class BankClient {
 							break;
 
 						case 8:
+							//Back To Previous Menu	
 							flag = true;
 							break;
 						}
@@ -221,6 +233,7 @@ public class BankClient {
 				}
 				break;
 			case 3:
+				//Reading External File whith FileReader	
 				File file = new File("info.txt");
 
 				if (!file.exists()) {
@@ -245,6 +258,7 @@ public class BankClient {
 				break;
 
 			case 4:
+				//Exit	
 				System.out.println("Thank For Banking With Us!!");
 				System.exit(0);
 				sc.close();
